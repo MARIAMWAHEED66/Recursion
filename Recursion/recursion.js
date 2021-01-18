@@ -1,29 +1,22 @@
-class TreeNode {
-  constructor(data) {
-    this.left = null;
-    this.right = null;
-    this.data = data;
-  }
+const numbers = [
+  [1, 2, 3, 4],
+  [3, 6, [5, 6], 8, 2, [2, 4], 9],
+  [4, 2, [6, 7, [2, 6, 1]]],
+];
 
-  insert(data) {
-    // if the data value is less than the value of the node
-    if (data <= this.data) {
-      // We go left since the value is less than
-      // If a left node does not exist, the new node goes here
-      // Otherwise we recursively call the insert method on the left node
-      if (this.left === null) {
-        this.left = new TreeNode(data);
-      } else {
-        this.left.insert(data);
-      }
-      // Otherwise the data value is greater than the value of the node
-    } else {
-      // Same process is followed but to the right.
-      if (this.right === null) {
-        this.right = new TreeNode(data);
-      } else {
-        this.right.insert(data);
-      }
-    }
-  }
+// let sum = 0;
+// for (let num of numbers) sum += num;
+// console.log(sum);
+
+function sum(array) {
+  return array.length === 0 ? 0 : array.reduce((sum, num) => sum + num, 0);
 }
+
+// const numbers = [1, 2, 3, 4, 5];
+console.log(sum(numbers));
+
+// const sum = function (num) {
+//   if (num.length < 1) return 0;
+//   return num.pop() + sum(num);
+// };
+// console.log(sum(numbers));
