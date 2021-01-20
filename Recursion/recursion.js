@@ -8,17 +8,20 @@ const numbers = [
 // let sum = 0;
 // for (let num of numbers) sum += num;
 // console.log(sum);
+//
+// const sum = (array) => {
+//   return array.length === 0 ? 0 : array.reduce((sum, num) => sum + num, 0);
+// };
 
-function sum(array) {
-  return array.length === 0 ? 0 : array.reduce((sum, num) => sum + num, 0);
-}
+// console.log(sum(numbers));
 
-console.log(sum(numbers));
+const rSum = (Array) => {
+  let sum = 0;
+  Array.forEach((element) => {
+    if (typeof element === "number") sum += element;
+    else sum += rSum(element);
+  });
+  return sum;
+};
 
-for (let i = 0; i < numbers.length; i++) {
-  const sum = function (num) {
-    if (num.length < 1) return 0;
-    return num.pop() + sum(num);
-  };
-}
-console.log(sum(numbers));
+console.log(rSum(numbers));
